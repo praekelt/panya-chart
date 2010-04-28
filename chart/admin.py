@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from content.admin import ModelAdminBase
-
+from content.admin import ModelBaseAdmin
 from chart.models import Chart, ChartEntry
 
 
