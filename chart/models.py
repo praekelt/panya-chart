@@ -11,6 +11,9 @@ class Chart(ModelBase):
     
     def get_absolute_url(self):
         return reverse('chart_object_detail', kwargs={'slug': self.slug})
+        
+    def __unicode__(self):
+        return self.title
 
 class ChartEntry(ModelBase):
     chart = models.ForeignKey(
