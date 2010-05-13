@@ -1,17 +1,15 @@
 {% extends "base.html" %}
-{% load content_inclusion_tags gallery_inclusion_tags %} 
+{% load content_inclusion_tags chart_inclusion_tags %} 
 
 {% block content %}
-    <div class="page section_galleries">
+    <div class="page section_chart">
 	    <div class="title">
-		    <h1>{{ title }}</h1>
+		    <h1>{{ object.title }}</h1>
 		</div><!--/title-->
         
         {% filter_menu filterset %}
-
-        {% object_header object %}
         
-        {% gallery_detail object %}
+        {% chart_detail object %}
 
         {% object_comments object %}
 

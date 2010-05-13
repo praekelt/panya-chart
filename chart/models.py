@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 
 from content.models import ModelBase
+from options.models import Options
 
 
 class Chart(ModelBase):
@@ -47,3 +48,18 @@ class ChartEntry(ModelBase):
     
     def __unicode__(self):
         return '%s entry %s' % (self.chart.title, self.current_position)
+        
+class ChartOptions(Options):
+    __module__ = 'options.models'
+
+    primary_chart = models.ForeignKey(
+        'chart.Chart',
+        null=True,
+        help_text="Select the primary chart link from the navigation.",
+        related_name='chartoptions_primary_chart',
+        limit_choices_to = {'state': 'published'}
+    )
+    
+    class Meta:
+        verbose_name = 'Chart Options'
+        verbose_name_plural = 'Chart Options'
