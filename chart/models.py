@@ -44,7 +44,6 @@ class ChartEntry(ModelBase):
     
     def position_difference(self):
         return str(self.current_position - self.position_difference)
-
+    
     def __unicode__(self):
         return '%s entry %s' % (self.chart.title, self.current_position)
-    
