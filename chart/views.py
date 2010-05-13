@@ -1,3 +1,5 @@
+import django_filters
+
 from content.filters import IntervalOrderFilterSet
 from content.generic.views import GenericObjectDetail, GenericObjectList 
 from chart.models import Chart
@@ -16,7 +18,7 @@ class ObjectList(GenericObjectList):
         return extra_context
     
     def get_filterset(self, request, queryset):
-        return IntervalOrderFilterSet(request.GET, queryset=queryset)
+        return None
     
     def get_paginate_by(self):
         return 12
