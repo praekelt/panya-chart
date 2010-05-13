@@ -1,0 +1,18 @@
+{% load comments %}
+
+{% get_comment_count for object as comment_count %}
+
+<div class="block is_gallery">
+    <a href="{{ object.get_absolute_url }}">
+        <img src="{{ object.get_gallery_block_url }}" width="188" height="104" alt="" />
+        <span></span>
+    </a>
+	<p>
+        <a href="{{ object.get_absolute_url }}">{{ object.title }}</a>
+    </p>
+	<p class="meta">{% if object.description %}{{ object.description }}{% else %}&nbsp;{% endif %}</p>
+	<div class="hidden">
+	    <p><a href="{{ object.get_absolute_url }}">{{ object.item_count }} Photos</a></p>
+		<p class="meta"><span class="meta_likes">{{ object.vote_total }} Likes</span><a href="{{ object.get_absolute_url }}#contribute">{{ comment_count }} Comments</a></p>
+	</div>
+</div><!--/block-->
