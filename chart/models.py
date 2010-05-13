@@ -21,8 +21,21 @@ class ChartEntry(ModelBase):
         related_name='chartentries'
     )
     # TODO: add radio.models.Song foreign key to model
-    current_position = models.IntegerField()
-    previous_position = models.IntegerField()
+    previous_position = models.IntegerField(
+        blank=True,
+        null=True
+    )
+    current_position = models.IntegerField(
+        blank=True,
+        null=True
+    )
+    next_position = models.IntegerField(
+        blank=True,
+        null=True
+    )
+    remove = models.BooleanField(
+        help_text="On the next update this entry will be removed completely."
+    )
     
     class Meta:
         verbose_name = 'Chart Entry'
