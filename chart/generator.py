@@ -17,8 +17,10 @@ def generate():
                 "title": "Chart Entry %s Title" % i,
                 "state": "published",
                 "image": random.sample(IMAGES, 1)[0],
-                "current_position": random.randint(0, 20),
                 "previous_position": random.randint(0, 20),
+                "current_position": random.randint(0, 20),
+                "next_position": random.randint(0, 20),
+                "remove": False,
                 "chart": {
                     "model": "chart.Chart",
                     "fields": {
@@ -41,16 +43,5 @@ def generate():
                 },
             },
         })
-    
-    # gen gallery photo sizes
-    objects.append({
-        "model": "photologue.PhotoSize",
-        "fields": {
-            "name": "chart_small",
-            "width": "188",
-            "height": "104",
-            "crop": True,
-        },
-    })
     
     load_json(objects)
