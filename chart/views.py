@@ -29,9 +29,9 @@ class ObjectList(GenericObjectList):
 
 object_list = ObjectList()
 
-class ObjectDetail(GenericObjectDetail):
-    def get_queryset(self):
-        return Chart.permitted.all()
+class ObjectDetail(GenericObjectList):
+    def get_queryset(self, slug):
+        return Chart.permitted.get(slug=slug).chartentries.all().order_by('current_position')
     
     def get_extra_context(self, *args, **kwargs):
         extra_context = super(ObjectDetail, self).get_extra_context(*args, **kwargs)
@@ -45,8 +45,6 @@ class ObjectDetail(GenericObjectDetail):
         return extra_context
     
     def get_filterset(self, request, queryset):
-        response = ChartFilterSet(request.GET, queryset[0].chartentries.all())
-        import pdb; pdb.set_trace()
-        return ChartFilterSet(request.GET, queryset[0].chartentries)
-
+        return None
+    
 object_detail = ObjectDetail()
