@@ -1,17 +1,25 @@
 {% extends "base.html" %}
-{% load content_inclusion_tags gallery_inclusion_tags %} 
+{% load content_inclusion_tags chart_inclusion_tags %} 
 
 {% block content %}
-    <div class="page section_galleries">
+    <div class="page section_chart">
 	    <div class="title">
-		    <h1>{{ title }}</h1>
-		</div><!--/title-->
+		    <h1>{{ object_list.0.chart.title }}</h1>
+		</div>
 
         {% filter_menu filterset %}
-
-        {% gallery_listing object_list %}
+		
+		<div class="chart_title">
+			<p class="chart_pos">Position</p>
+			<p class="chart_pic"></p>
+			<p class="chart_song">Artist &amp; Song</p>
+			<p class="chart_history">History</p>
+			<p class="chart_video">Video</p>
+		</div>
+		
+        {% chartentry_listing object_list %}
 
         {% pager page_obj %}
 
-	</div><!--/page-->
+	</div>
 {% endblock %}
