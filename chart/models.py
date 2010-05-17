@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 
 from content.models import ModelBase
+from music.models import Track
 from options.models import Options
 
 
@@ -16,12 +17,12 @@ class Chart(ModelBase):
     def __unicode__(self):
         return self.title
 
-class ChartEntry(ModelBase):
+class ChartEntry(models.Model):
     chart = models.ForeignKey(
         Chart, 
         related_name='chartentries'
     )
-    # TODO: add radio.models.Song foreign key to model
+    track = models.ForeignKey(Track)
     previous_position = models.IntegerField(
         blank=True,
         null=True
@@ -47,7 +48,7 @@ class ChartEntry(ModelBase):
         return str(self.current_position - self.position_difference)
     
     def __unicode__(self):
-        return '%s entry %s' % (self.chart.title, self.current_position)
+        return '%s Entry %s' % (self.chart.title, self.current_position)
         
 class ChartOptions(Options):
     __module__ = 'options.models'
