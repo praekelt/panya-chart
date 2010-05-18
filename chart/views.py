@@ -1,6 +1,5 @@
 import django_filters
 
-from content.filters import IntervalOrderFilterSet
 from content.generic.views import GenericObjectDetail, GenericObjectList
 from chart.models import Chart
 from pagemenu.pagemenus import IntegerRangePageMenu
