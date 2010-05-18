@@ -1,10 +1,11 @@
+{% load content_template_tags %}
 <div class="chart_item">
 	<p class="chart_pos">{{ object.current_position }}</p>
 	<p class="chart_pic"><img src="{{ object.track.get_track_thumbnail_url }}" width="50" height="50" alt="" /></p>
 	<p class="chart_song">
-		<span>{{ object.title }}</span>
-		<span class="song">Jay-Z Featuring Alicia Keys</span>
+		<span>{{ object.track.title }}</span>
+		<span class="song">{{ object.track.get_primary_contributors|join:", " }}</span>
 	</p>
-	<p class="chart_history">2 Last Week<br />3 Weeks On</p>
+	<p class="chart_history">{% if object.previous_position %}{{ object.previous_position }} Last Week<br />{% endif %}{% humanize_time_diff object.get_duration_on_chart 'On' %}</p>
 	<p class="chart_video"><a href="pop-video.html?height=440&amp;width=422" class="thickbox"></a></p>
 </div>
