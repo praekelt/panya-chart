@@ -2,7 +2,6 @@ import django_filters
 
 from content.filters import IntervalOrderFilterSet
 from content.generic.views import GenericObjectDetail, GenericObjectList
-from chart.filters import ChartFilterSet
 from chart.models import Chart
 
 class ObjectList(GenericObjectList):
