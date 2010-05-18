@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.core.urlresolvers import reverse
 from django.db import models
 
@@ -18,6 +20,7 @@ class Chart(ModelBase):
         return self.title
 
 class ChartEntry(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
     chart = models.ForeignKey(
         Chart, 
         related_name='chartentries'
@@ -44,8 +47,8 @@ class ChartEntry(models.Model):
         verbose_name_plural = 'Chart Entries'
         ordering = ['current_position']
     
-    def position_difference(self):
-        return str(self.current_position - self.position_difference)
+    def get_duration_on_chart(self):
+        return datetime.now() - (datetime.now() - self.created)
     
     def __unicode__(self):
         return '%s Entry %s' % (self.chart.title, self.current_position)
