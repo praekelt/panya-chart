@@ -3,6 +3,7 @@ import django_filters
 from content.filters import IntervalOrderFilterSet
 from content.generic.views import GenericObjectDetail, GenericObjectList
 from chart.models import Chart
+from pagemenu.pagemenus import IntegerRangePageMenu
 
 class ObjectList(GenericObjectList):
     def get_extra_context(self, *args, **kwargs):
@@ -43,7 +44,7 @@ class ObjectDetail(GenericObjectList):
             extra_context = added_context
         return extra_context
     
-    def get_filterset(self, request, queryset):
-        return None
+    def get_pagemenu(self, request, queryset):
+        return IntegerRangePageMenu(queryset=queryset, request=request, field_name="current_position", interval=10)
     
 object_detail = ObjectDetail()
