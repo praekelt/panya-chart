@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load content_inclusion_tags chart_inclusion_tags %} 
+{% load pagemenu_inclusion_tags chart_inclusion_tags %} 
 
 {% block content %}
     <div class="page section_chart">
@@ -7,7 +7,7 @@
 		    <h1>{{ object_list.0.chart.title }}</h1>
 		</div>
 
-        {% filter_menu filterset %}
+        {% pagemenu pagemenu %}
 		
 		<div class="chart_title">
 			<p class="chart_pos">Position</p>
@@ -18,8 +18,6 @@
 		</div>
 		
         {% chartentry_listing object_list %}
-
-        {% pager page_obj %}
 
 	</div>
 {% endblock %}
