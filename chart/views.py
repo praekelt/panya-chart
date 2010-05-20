@@ -43,7 +43,7 @@ class ObjectDetail(GenericObjectList):
             extra_context = added_context
         return extra_context
     
-    def get_pagemenu(self, request, queryset):
+    def get_pagemenu(self, request, queryset, *args, **kwargs):
         return IntegerFieldRangePageMenu(queryset=queryset, request=request, field_name="current_position", interval=10)
     
 object_detail = ObjectDetail()
