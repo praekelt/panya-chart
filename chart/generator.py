@@ -102,4 +102,17 @@ def generate():
             },
         })
     
+    # create chart options
+    objects.append({
+        "model": "options.ChartOptions",
+        "fields": {
+            "primary_chart": {
+                "model": "chart.Chart",
+                "fields": {
+                    "title": "Chart 1 Title",
+                }
+            },
+        }
+    })
+    
     load_json(objects)
