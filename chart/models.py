@@ -43,8 +43,8 @@ class ChartEntry(models.Model):
     )
     
     class Meta:
-        verbose_name = 'Chart Entry'
-        verbose_name_plural = 'Chart Entries'
+        verbose_name = 'Chart entry'
+        verbose_name_plural = 'Chart entries'
         ordering = ['current_position']
     
     def get_duration_on_chart(self):
@@ -65,5 +65,5 @@ class ChartOptions(Options):
     )
     
     class Meta:
-        verbose_name = 'Chart Options'
-        verbose_name_plural = 'Chart Options'
+        verbose_name = 'Chart options'
+        verbose_name_plural = 'Chart options'
