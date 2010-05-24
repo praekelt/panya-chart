@@ -1,5 +1,3 @@
-import django_filters
-
 from content.generic.views import GenericObjectDetail, GenericObjectList
 from chart.models import Chart
 from pagemenu.pagemenus import IntegerFieldRangePageMenu
@@ -16,9 +14,6 @@ class ObjectList(GenericObjectList):
             extra_context = added_context
 
         return extra_context
-    
-    def get_filterset(self, request, queryset):
-        return None
     
     def get_paginate_by(self):
         return 12
