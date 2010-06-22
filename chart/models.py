@@ -5,7 +5,7 @@ from django.db import models
 
 from panya.models import ModelBase
 from music.models import Track
-from options.models import Options
+from preferences.models import Preferences
 
 class Chart(ModelBase):
     class Meta:
@@ -52,8 +52,8 @@ class ChartEntry(models.Model):
     def __unicode__(self):
         return '%s Entry %s' % (self.chart.title, self.current_position)
         
-class ChartOptions(Options):
-    __module__ = 'options.models'
+class ChartOptions(Preferences):
+    __module__ = 'preferences.models'
 
     primary_chart = models.ForeignKey(
         'chart.Chart',
