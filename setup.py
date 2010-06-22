@@ -12,9 +12,11 @@ setup(
     packages = find_packages(),
     dependency_links = [
         'https://github.com/praekelt/panya/tarball/master#egg=panya',
+        'https://github.com/praekelt/panya-music/tarball/master#egg=panya-music',
     ],
     install_requires = [
         'panya',
+        'panya-music',
     ],
     include_package_data=True,
     classifiers = [

@@ -3,10 +3,9 @@ from datetime import datetime
 from django.core.urlresolvers import reverse
 from django.db import models
 
-from content.models import ModelBase
+from panya.models import ModelBase
 from music.models import Track
 from options.models import Options
-
 
 class Chart(ModelBase):
     class Meta:

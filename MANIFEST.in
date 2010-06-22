@@ -1,6 +1,6 @@
 include AUTHORS
 include LICENSE
 include README.rst
-recursive-include gallery/management *
-recursive-include gallery/templates *
-recursive-include gallery/templatetags *
+recursive-include chart/management *
+recursive-include chart/templates *
+recursive-include chart/templatetags *
