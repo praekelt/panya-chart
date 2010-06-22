@@ -15,6 +15,7 @@ setup(
         'https://github.com/praekelt/panya-music/tarball/master#egg=panya-music',
     ],
     install_requires = [
+        'django-preferences',
         'panya',
         'panya-music',
     ],
