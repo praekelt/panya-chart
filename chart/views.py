@@ -1,4 +1,4 @@
-from content.generic.views import GenericObjectDetail, GenericObjectList
+from panya.generic.views import GenericObjectDetail, GenericObjectList
 from chart.models import Chart
 from pagemenu.pagemenus import IntegerFieldRangePageMenu
 

@@ -52,7 +52,7 @@ class ChartEntry(models.Model):
     def __unicode__(self):
         return '%s Entry %s' % (self.chart.title, self.current_position)
         
-class ChartOptions(Preferences):
+class ChartPreferences(Preferences):
     __module__ = 'preferences.models'
 
     primary_chart = models.ForeignKey(
@@ -64,5 +64,5 @@ class ChartOptions(Preferences):
     )
     
     class Meta:
-        verbose_name = 'Chart options'
-        verbose_name_plural = 'Chart options'
+        verbose_name = 'Chart preferences'
+        verbose_name_plural = 'Chart preferences'

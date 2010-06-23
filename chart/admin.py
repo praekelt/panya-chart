@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from panya.admin import ModelBaseAdmin
-from chart.models import Chart, ChartEntry, ChartOptions
+from chart.models import Chart, ChartEntry, ChartPreferences
 
 
 class ChartEntryAdmin(admin.ModelAdmin):
@@ -11,4 +11,4 @@ class ChartEntryAdmin(admin.ModelAdmin):
 
 admin.site.register(Chart, ModelBaseAdmin)
 admin.site.register(ChartEntry, ChartEntryAdmin)
-admin.site.register(ChartOptions)
+admin.site.register(ChartPreferences)
