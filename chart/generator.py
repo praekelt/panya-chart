@@ -104,7 +104,7 @@ def generate():
     
     # create chart options
     objects.append({
-        "model": "options.ChartOptions",
+        "model": "preferences.ChartPreferences",
         "fields": {
             "primary_chart": {
                 "model": "chart.Chart",
