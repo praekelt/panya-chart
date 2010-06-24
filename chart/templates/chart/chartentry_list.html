@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load pagemenu_inclusion_tags chart_inclusion_tags %} 
+{% load panya_inclusion_tags chart_inclusion_tags %} 
 
 {% block content %}
     <div class="page section_chart">
@@ -7,7 +7,7 @@
 		    <h1>{{ object_list.0.chart.title }}</h1>
 		</div>
 
-        {% pagemenu pagemenu %}
+        {% view_modifier view_modifier %}
 		
 		<div class="chart_title">
 			<p class="chart_pos">Position</p>
