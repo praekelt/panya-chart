@@ -1,4 +1,5 @@
 from panya.generic.views import GenericObjectDetail, GenericObjectList
+from panya.view_modifiers import IntegerFieldRangeViewModifier
 from chart.models import Chart
 from pagemenu.pagemenus import IntegerFieldRangePageMenu
 
@@ -24,21 +25,11 @@ class ObjectList(GenericObjectList):
 object_list = ObjectList()
 
 class ObjectDetail(GenericObjectList):
-    def get_queryset(self, slug):
+    def get_queryset(self, *args, **kwargs):
+        slug = kwargs['slug']
         return Chart.permitted.get(slug=slug).chartentries.all().order_by('current_position')
-    
-    def get_extra_context(self, *args, **kwargs):
-        extra_context = super(ObjectDetail, self).get_extra_context(*args, **kwargs)
-        added_context = {'title': 'Chart'}
-        if extra_context:
-            extra_context.update(
-                added_context,
-            )
-        else:
-            extra_context = added_context
-        return extra_context
-    
-    def get_pagemenu(self, request, queryset, *args, **kwargs):
-        return IntegerFieldRangePageMenu(queryset=queryset, request=request, field_name="current_position", interval=10)
+   
+    def get_view_modifier(self, request, *args, **kwargs):
+        return IntegerFieldRangeViewModifier(request=request, field_name="current_position", count=self.get_queryset(*args, **kwargs).count(), interval=10)
     
 object_detail = ObjectDetail()
