@@ -7,5 +7,5 @@
 		<span class="song">{{ object.track.get_primary_contributors|join:", " }}</span>
 	</p>
 	<p class="chart_history">{% if object.previous_position %}{{ object.previous_position }} Last Week<br />{% endif %}{% humanize_time_diff object.get_duration_on_chart 'On' %}</p>
-	<p class="chart_video">{% if object.track.video_embed %}<a href="{% url music_popup_object_detail object.track.slug %}?height=440&amp;width=422" class="thickbox"></a>{% endif %}</p>
+	<p class="chart_video">{% if object.track.video_embed %}<a href="{% url object_peek object.track.slug %}?height=440&amp;width=422" class="thickbox"></a>{% endif %}</p>
 </div>
