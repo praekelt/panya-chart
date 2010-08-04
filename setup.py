@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='panya-chart',
-    version='0.0.3',
+    version='0.0.4',
     description='Panya chart app.',
     long_description = open('README.rst', 'r').read(),
     author='Praekelt International',
@@ -10,10 +10,6 @@ setup(
     license='BSD',
     url='http://github.com/praekelt/panya-chart',
     packages = find_packages(),
-    dependency_links = [
-        'https://github.com/praekelt/panya/tarball/master#egg=panya',
-        'https://github.com/praekelt/panya-music/tarball/master#egg=panya-music',
-    ],
     install_requires = [
         'django-preferences',
         'panya',
